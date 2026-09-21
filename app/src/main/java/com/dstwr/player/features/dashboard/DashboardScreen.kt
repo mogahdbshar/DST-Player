@@ -10,7 +10,7 @@ import androidx.navigation.NavController
 import com.dstwr.player.core.designsystem.*
 import com.dstwr.player.core.model.MediaItem
 import com.dstwr.player.core.model.MediaType
-
+import com.dstwr.player.navigation.Routes
 @Composable fun DashboardScreen(nav:NavController){
  val demo=remember{listOf(MediaItem("1","Live Channels","https://example.com/1",group="News",type=MediaType.LIVE),MediaItem("2","Movies","https://example.com/2",group="Featured",type=MediaType.MOVIE),MediaItem("3","Series","https://example.com/3",group="Drama",type=MediaType.SERIES))}
  Scaffold(bottomBar={DSTBottomBar(Routes.HOME){nav.navigate(it)}},containerColor=DSTColors.Background){pad->
