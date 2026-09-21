@@ -1,3 +1,2 @@
 package com.dstwr.player.core.model
-
-data class Program(val id:String,val channelId:String,val title:String,val description:String?,val startEpochMs:Long,val endEpochMs:Long,val posterUrl:String?=null)
+data class Program(val id:String=java.util.UUID.randomUUID().toString(),val title:String,val description:String?=null,val startTime:Long=0,val endTime:Long=0,val channelId:String?=null)
