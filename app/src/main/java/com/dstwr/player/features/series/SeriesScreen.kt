@@ -8,4 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.dstwr.player.core.designsystem.GlassCard
 import com.dstwr.player.core.model.MediaItem
-@Composable fun SeriesScreen(series:List<MediaItem>,onOpen:(MediaItem)->Unit){Column(Modifier.fillMaxSize().padding(20.dp)){Text("Series",style=MaterialTheme.typography.headlineMedium);Spacer(Modifier.height(16.dp));LazyColumn(verticalArrangement=Arrangement.spacedBy(10.dp)){items(series){s->GlassCard(Modifier.fillMaxWidth()){Row(Modifier.fillMaxWidth().padding(14.dp),horizontalArrangement=Arrangement.SpaceBetween){Text(s.title);Button({onOpen(s)}){Text("Open")}}}}}}}}
+@Composable fun SeriesScreen(series:List<MediaItem>,onOpen:(MediaItem)->Unit){
+ Column(Modifier.fillMaxSize().padding(20.dp)){Text("Series",style=MaterialTheme.typography.headlineMedium);Spacer(Modifier.height(16.dp));LazyColumn(verticalArrangement=Arrangement.spacedBy(10.dp)){items(series){s->GlassCard(Modifier.fillMaxWidth()){Row(Modifier.fillMaxWidth().padding(14.dp),horizontalArrangement=Arrangement.SpaceBetween){Text(s.title);Button({onOpen(s)}){Text("Open")}}}}}}
+ }
+}
