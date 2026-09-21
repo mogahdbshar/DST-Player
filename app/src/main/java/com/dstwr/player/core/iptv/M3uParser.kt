@@ -1,0 +1,3 @@
+package com.dstwr.player.core.iptv
+import com.dstwr.player.core.model.*
+object M3uParser { fun parse(text:String):List<MediaItem>{ val out=mutableListOf<MediaItem>(); var name=""; var group:String?=null; var logo:String?=null; text.lineSequence().forEach{ raw-> val line=raw.trim(); if(line.startsWith("#EXTINF",true)){ name=line.substringAfter(",","Untitled").trim(); group=Regex("group-title=\\\"([^\\\"]*)\\\"").find(line)?.groupValues?.get(1); logo=Regex("tvg-logo=\\\"([^\\\"]*)\\\"").find(line)?.groupValues?.get(1) } else if(line.isNotBlank()&&!line.startsWith("#")){ out += MediaItem(out.size.toString()+":"+line.hashCode(),name.ifBlank{"Channel "+(out.size+1)},line,logo,group,MediaType.LIVE); name=""; group=null; logo=null } }; return out } }
